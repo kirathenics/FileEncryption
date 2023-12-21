@@ -36,89 +36,6 @@ MainWindow::~MainWindow()
     delete ui;
 }
 
-void MainWindow::on_pushButton_encrypt_clicked()
-{
-    // Получаем текст из plainTextEdit_plain
-    QString plainText = ui->plainTextEdit_plain->toPlainText();
-    QString encryptedText = "Insert a File";
-
-    if(ui->comboBox->currentIndex() == 0) // DES
-    {
-        QString key = ui->AES_lineEdit_key->text();
-        encryptedText = ewDES(plainText, key.toStdString());
-    }
-    else if (ui->comboBox->currentIndex() == 1)  // AES
-    {
-        // Получение ключа
-        QString key = ui->AES_lineEdit_key->text();
-        QByteArray keyBytes = key.toUtf8();
-        const unsigned char *aesKey = reinterpret_cast<const unsigned char*>(keyBytes.constData());
-
-        // Генерация случайного IV
-        unsigned char iv[AES_BLOCK_SIZE];
-        //RAND_bytes(iv, AES_BLOCK_SIZE);
-
-        // Зашифрование
-        QByteArray plainBytes = plainText.toUtf8();
-        const unsigned char *inputData = reinterpret_cast<const unsigned char*>(plainBytes.constData());
-
-        unsigned char encryptedData[plainBytes.size() + AES_BLOCK_SIZE];
-        AES_KEY encryptKey;
-        //AES_set_encrypt_key(aesKey, 128, &encryptKey);
-        //AES_cbc_encrypt(inputData, encryptedData, plainBytes.size(), &encryptKey, iv, AES_ENCRYPT);
-
-        // Преобразование в строку шестнадцатеричных значений
-        QString hexEncryptedText = QByteArray(reinterpret_cast<char*>(encryptedData), plainBytes.size() + AES_BLOCK_SIZE).toHex();
-
-        encryptedText = hexEncryptedText;
-
-        encryptedText = ewDES(plainText, key.toStdString());
-    }
-
-
-    // Устанавливаем зашифрованный текст в plainTextEdit_encrypted
-    ui->plainTextEdit_encrypted->document()->setPlainText(encryptedText);
-}
-
-void MainWindow::on_pushButton_decrypt_clicked()
-{
-    // Получаем текст из plainTextEdit_encrypted
-    QString encryptedText = ui->plainTextEdit_encrypted->toPlainText();
-    QString plainText = "Insert a File";
-
-    if(ui->comboBox->currentIndex() == 0) // DES
-    {
-        QString key = ui->AES_lineEdit_key->text();
-        plainText = dwDES(encryptedText, key.toStdString());
-    }
-    else if (ui->comboBox->currentIndex() == 1)  // AES
-    {
-        // Получение ключа
-        QString key = ui->AES_lineEdit_key->text();
-        QByteArray keyBytes = key.toUtf8();
-        const unsigned char *aesKey = reinterpret_cast<const unsigned char*>(keyBytes.constData());
-
-        // Получение IV (первые 16 символов зашифрованного текста)
-        QByteArray encryptedBytes = QByteArray::fromHex(encryptedText.toUtf8());
-        unsigned char iv[AES_BLOCK_SIZE];
-        memcpy(iv, encryptedBytes.constData(), AES_BLOCK_SIZE);
-
-        // Расшифрование
-        const unsigned char *inputData = reinterpret_cast<const unsigned char*>(encryptedBytes.constData() + AES_BLOCK_SIZE);
-
-        unsigned char decryptedData[encryptedBytes.size() - AES_BLOCK_SIZE];
-        AES_KEY decryptKey;
-        //AES_set_decrypt_key(aesKey, 128, &decryptKey);
-        //AES_cbc_encrypt(inputData, decryptedData, encryptedBytes.size() - AES_BLOCK_SIZE, &decryptKey, iv, AES_DECRYPT);
-
-        // Преобразование в строку
-        plainText = dwDES(encryptedText, key.toStdString());
-    }
-
-    // Устанавливаем расшифрованный текст в plainTextEdit_plain
-    ui->plainTextEdit_plain->document()->setPlainText(plainText);
-}
-
 void MainWindow::on_actionReset_Fields_triggered()
 {
     // Очистить оба текстовых поля
@@ -200,6 +117,88 @@ void MainWindow::on_actionExit_triggered()
 {
     // Выход из программы
     exit(0);
+}
+
+void MainWindow::on_pushButton_encrypt_clicked()
+{
+    // Получаем текст из plainTextEdit_plain
+    QString plainText = ui->plainTextEdit_plain->toPlainText();
+    QString encryptedText = "Insert a File";
+
+    if(ui->comboBox->currentIndex() == 0) // DES
+    {
+        QString key = ui->AES_lineEdit_key->text();
+        encryptedText = ewDES(plainText, key.toStdString());
+    }
+    else if (ui->comboBox->currentIndex() == 1)  // AES
+    {
+        // Получение ключа
+        QString key = ui->AES_lineEdit_key->text();
+        QByteArray keyBytes = key.toUtf8();
+        const unsigned char *aesKey = reinterpret_cast<const unsigned char*>(keyBytes.constData());
+
+        // Генерация случайного IV
+        unsigned char iv[AES_BLOCK_SIZE];
+        //RAND_bytes(iv, AES_BLOCK_SIZE);
+
+        // Зашифрование
+        QByteArray plainBytes = plainText.toUtf8();
+        const unsigned char *inputData = reinterpret_cast<const unsigned char*>(plainBytes.constData());
+
+        unsigned char encryptedData[plainBytes.size() + AES_BLOCK_SIZE];
+        AES_KEY encryptKey;
+        //AES_set_encrypt_key(aesKey, 128, &encryptKey);
+        //AES_cbc_encrypt(inputData, encryptedData, plainBytes.size(), &encryptKey, iv, AES_ENCRYPT);
+
+        // Преобразование в строку шестнадцатеричных значений
+        QString hexEncryptedText = QByteArray(reinterpret_cast<char*>(encryptedData), plainBytes.size() + AES_BLOCK_SIZE).toHex();
+
+        encryptedText = hexEncryptedText;
+
+        encryptedText = ewDES(plainText, key.toStdString());
+    }
+
+    // Устанавливаем зашифрованный текст в plainTextEdit_encrypted
+    ui->plainTextEdit_encrypted->document()->setPlainText(encryptedText);
+}
+
+void MainWindow::on_pushButton_decrypt_clicked()
+{
+    // Получаем текст из plainTextEdit_encrypted
+    QString encryptedText = ui->plainTextEdit_encrypted->toPlainText();
+    QString plainText = "Insert a File";
+
+    if(ui->comboBox->currentIndex() == 0) // DES
+    {
+        QString key = ui->AES_lineEdit_key->text();
+        plainText = dwDES(encryptedText, key.toStdString());
+    }
+    else if (ui->comboBox->currentIndex() == 1)  // AES
+    {
+        // Получение ключа
+        QString key = ui->AES_lineEdit_key->text();
+        QByteArray keyBytes = key.toUtf8();
+        const unsigned char *aesKey = reinterpret_cast<const unsigned char*>(keyBytes.constData());
+
+        // Получение IV (первые 16 символов зашифрованного текста)
+        QByteArray encryptedBytes = QByteArray::fromHex(encryptedText.toUtf8());
+        unsigned char iv[AES_BLOCK_SIZE];
+        memcpy(iv, encryptedBytes.constData(), AES_BLOCK_SIZE);
+
+        // Расшифрование
+        const unsigned char *inputData = reinterpret_cast<const unsigned char*>(encryptedBytes.constData() + AES_BLOCK_SIZE);
+
+        unsigned char decryptedData[encryptedBytes.size() - AES_BLOCK_SIZE];
+        AES_KEY decryptKey;
+        //AES_set_decrypt_key(aesKey, 128, &decryptKey);
+        //AES_cbc_encrypt(inputData, decryptedData, encryptedBytes.size() - AES_BLOCK_SIZE, &decryptKey, iv, AES_DECRYPT);
+
+        // Преобразование в строку
+        plainText = dwDES(encryptedText, key.toStdString());
+    }
+
+    // Устанавливаем расшифрованный текст в plainTextEdit_plain
+    ui->plainTextEdit_plain->document()->setPlainText(plainText);
 }
 
 std::vector< std::string > MainWindow::keyPreparation(std::string key)

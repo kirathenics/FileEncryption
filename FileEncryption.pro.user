@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <!DOCTYPE QtCreatorProject>
-<!-- Written by QtCreator 11.0.2, 2023-12-21T21:58:42. -->
+<!-- Written by QtCreator 11.0.2, 2023-12-21T22:46:45. -->
 <qtcreator>
  <data>
   <variable>EnvironmentId</variable>
@@ -237,7 +237,7 @@
     <valuelist type="QVariantList" key="CustomOutputParsers"/>
     <value type="int" key="PE.EnvironmentAspect.Base">2</value>
     <valuelist type="QVariantList" key="PE.EnvironmentAspect.Changes">
-     <value type="QString">Path=E:\Qt\Tools\OpenSSLv3\Win_x64\lib;C:\Users\bka32\GitHub-repos\FileEncryption\FileEncryption\libssl.lib;C:\Users\bka32\GitHub-repos\FileEncryption\FileEncryption\libcrypto.lib;E:\Qt\6.2.4\mingw_64\bin;E:\Qt\Tools\mingw1120_64\bin;E:\Qt\6.2.4\mingw_64\bin;E:\Qt\Tools\mingw1120_64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Graphviz\bin;C:\Program Files\Graphviz;C:\Program Files\MongoDB\Tools\100\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\bka32\AppData\Local\Microsoft\WindowsApps;C:\Users\bka32\AppData\Local\GitHubDesktop\bin;E:\opencv\build;C:\Users\bka32\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\bka32\AppData\Roaming\npm;C:\Program Files\Graphviz\bin;C:\Program Files\Graphviz;C:\Program Files\heroku\bin;E:\Qt\Tools\OpenSSLv3\Win_x64\bin</value>
+     <value type="QString">Path=E:\Qt\Tools\OpenSSLv3\Win_x64\bin;C:\Users\bka32\GitHub-repos\FileEncryption\FileEncryption\libssl.lib;C:\Users\bka32\GitHub-repos\FileEncryption\FileEncryption\libcrypto.lib;E:\Qt\6.2.4\mingw_64\bin;E:\Qt\Tools\mingw1120_64\bin;E:\Qt\6.2.4\mingw_64\bin;E:\Qt\Tools\mingw1120_64\bin;C:\Program Files (x86)\Common Files\Oracle\Java\javapath;C:\Program Files\Microsoft MPI\Bin\;C:\ProgramData\Oracle\Java\javapath;C:\Windows\system32;C:\Windows;C:\Windows\System32\Wbem;C:\Windows\System32\WindowsPowerShell\v1.0\;C:\Windows\System32\OpenSSH\;C:\Program Files\NVIDIA Corporation\NVIDIA NvDLISR;C:\Program Files (x86)\NVIDIA Corporation\PhysX\Common;C:\Program Files\nodejs\;C:\Program Files\Git\cmd;C:\Program Files\Docker\Docker\resources\bin;C:\Program Files\Graphviz\bin;C:\Program Files\Graphviz;C:\Program Files\MongoDB\Tools\100\bin;C:\Program Files (x86)\Windows Kits\10\Windows Performance Toolkit\;C:\Users\bka32\AppData\Local\Microsoft\WindowsApps;C:\Users\bka32\AppData\Local\GitHubDesktop\bin;E:\opencv\build;C:\Users\bka32\AppData\Local\Programs\Microsoft VS Code\bin;C:\Users\bka32\AppData\Roaming\npm;C:\Program Files\Graphviz\bin;C:\Program Files\Graphviz;C:\Program Files\heroku\bin;E:\Qt\Tools\OpenSSLv3\Win_x64\bin</value>
     </valuelist>
     <value type="bool" key="PE.EnvironmentAspect.PrintOnRun">false</value>
     <value type="QString" key="ProjectExplorer.ProjectConfiguration.Id">Qt4ProjectManager.Qt4RunConfiguration:C:/Users/bka32/GitHub-repos/FileEncryption/FileEncryption/FileEncryption.pro</value>
@@ -245,7 +245,7 @@
     <value type="bool" key="RunConfiguration.UseCppDebuggerAuto">true</value>
     <value type="bool" key="RunConfiguration.UseLibrarySearchPath">true</value>
     <value type="bool" key="RunConfiguration.UseQmlDebuggerAuto">true</value>
-    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/bka32/GitHub-repos/FileEncryption/build-FileEncryption-Desktop_Qt_6_2_4_MinGW_64_bit-Release</value>
+    <value type="QString" key="RunConfiguration.WorkingDirectory.default">C:/Users/bka32/GitHub-repos/FileEncryption/FileEncryption</value>
    </valuemap>
    <value type="qlonglong" key="ProjectExplorer.Target.RunConfigurationCount">1</value>
   </valuemap>

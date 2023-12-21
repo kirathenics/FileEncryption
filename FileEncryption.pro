@@ -18,10 +18,13 @@ HEADERS += \
 FORMS += \
     mainwindow.ui
 
+INCLUDEPATH += E:\Qt\Tools\OpenSSLv3\Win_x64\include
+LIBS += -LE:\Qt\Tools\OpenSSLv3\Win_x64\lib -Llibssl.lib -Llibcrypto.lib
+
 # Default rules for deployment.
 qnx: target.path = /tmp/$${TARGET}/bin
 else: unix:!android: target.path = /opt/$${TARGET}/bin
 !isEmpty(target.path): INSTALLS += target
 
-INCLUDEPATH += E:\Qt\Tools\OpenSSLv3\Win_x64\include
-LIBS += -LE:\Qt\Tools\OpenSSLv3\Win_x64\lib -Llibssl.lib -Llibcrypto.lib
+
+
